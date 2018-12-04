@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -48,11 +49,22 @@ namespace StoreManager.API.Controllers
             return Ok(product);
         }
 
-        /*[HttpPost]
-        public async Task<IActionResult> CreateProduct([FromBody] ProductResource product)
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct([FromBody] NewProductResource productResource)
         {
-            return Ok();
-        }*/
+            if (!ModelState.IsValid)
+            {
+                var errors =  ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToArray();
+                return BadRequest(errors);
+            }      
+            var productWithId =   _productsRepository.AddProduct(productResource);
+            productResource.ProductId = productWithId.ProductId;  
+            _productsRepository.AddProductStore(productResource);
+
+            await _productsRepository.SaveChangesAsync();
+
+            return Ok(productResource);
+        }
       
     }
 }

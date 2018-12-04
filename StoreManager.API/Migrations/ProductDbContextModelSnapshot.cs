@@ -40,14 +40,14 @@ namespace StoreManager.API.Migrations
                     b.ToTable("Products");
 
                     b.HasData(
-                        new { ProductId = 1, DateAdded = new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), ProductGroupId = 1, ProductName = "Product 1" },
-                        new { ProductId = 2, DateAdded = new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), ProductGroupId = 2, ProductName = "Product 2" },
-                        new { ProductId = 3, DateAdded = new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), ProductGroupId = 2, ProductName = "Product 3" },
-                        new { ProductId = 4, DateAdded = new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), ProductGroupId = 2, ProductName = "Product 4" },
-                        new { ProductId = 5, DateAdded = new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), ProductGroupId = 1, ProductName = "Product 5" },
-                        new { ProductId = 6, DateAdded = new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), ProductGroupId = 3, ProductName = "Product 6" },
-                        new { ProductId = 7, DateAdded = new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), ProductGroupId = 3, ProductName = "Product 7" },
-                        new { ProductId = 8, DateAdded = new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), ProductGroupId = 3, ProductName = "Product 8" }
+                        new { ProductId = 1, DateAdded = new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), ProductGroupId = 1, ProductName = "Product 1" },
+                        new { ProductId = 2, DateAdded = new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), ProductGroupId = 2, ProductName = "Product 2" },
+                        new { ProductId = 3, DateAdded = new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), ProductGroupId = 2, ProductName = "Product 3" },
+                        new { ProductId = 4, DateAdded = new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), ProductGroupId = 2, ProductName = "Product 4" },
+                        new { ProductId = 5, DateAdded = new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), ProductGroupId = 1, ProductName = "Product 5" },
+                        new { ProductId = 6, DateAdded = new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), ProductGroupId = 3, ProductName = "Product 6" },
+                        new { ProductId = 7, DateAdded = new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), ProductGroupId = 3, ProductName = "Product 7" },
+                        new { ProductId = 8, DateAdded = new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), ProductGroupId = 3, ProductName = "Product 8" }
                     );
                 });
 
@@ -87,14 +87,14 @@ namespace StoreManager.API.Migrations
 
                     b.Property<int>("StoreId");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("PriceWithVaT")
+                    b.Property<decimal?>("PriceWithVaT")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("Vat")
-                        .HasColumnType("decimal(5,4)");
+                    b.Property<decimal?>("VatRate")
+                        .HasColumnType("decimal(6,4)");
 
                     b.HasKey("ProductId", "StoreId");
 
@@ -103,12 +103,12 @@ namespace StoreManager.API.Migrations
                     b.ToTable("ProductStores");
 
                     b.HasData(
-                        new { ProductId = 1, StoreId = 1, Price = 12.00m, PriceWithVaT = 13.20m, Vat = 0.32m },
-                        new { ProductId = 2, StoreId = 2, Price = 50.00m, PriceWithVaT = 15.20m, Vat = 0.36m },
-                        new { ProductId = 1, StoreId = 2, Price = 50.00m, PriceWithVaT = 15.20m, Vat = 0.36m },
-                        new { ProductId = 1, StoreId = 3, Price = 48.00m, PriceWithVaT = 14.20m, Vat = 0.63m },
-                        new { ProductId = 1, StoreId = 4, Price = 50.00m, PriceWithVaT = 19.20m, Vat = 0.54m },
-                        new { ProductId = 3, StoreId = 2, Price = 50.00m, PriceWithVaT = 15.20m, Vat = 0.36m }
+                        new { ProductId = 1, StoreId = 1, Price = 12.00m, PriceWithVaT = 13.20m, VatRate = 0.32m },
+                        new { ProductId = 2, StoreId = 2, Price = 50.00m, PriceWithVaT = 15.20m, VatRate = 0.36m },
+                        new { ProductId = 1, StoreId = 2, Price = 50.00m, PriceWithVaT = 15.20m, VatRate = 0.36m },
+                        new { ProductId = 1, StoreId = 3, Price = 48.00m, PriceWithVaT = 14.20m, VatRate = 0.63m },
+                        new { ProductId = 1, StoreId = 4, Price = 50.00m, PriceWithVaT = 19.20m, VatRate = 0.54m },
+                        new { ProductId = 3, StoreId = 2, Price = 50.00m, PriceWithVaT = 15.20m, VatRate = 0.36m }
                     );
                 });
 

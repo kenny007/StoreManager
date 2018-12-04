@@ -13,7 +13,7 @@ namespace StoreManager.API.Models
         public DateTime DateAdded { get; set; }
         public string ProductGroup { get; set; }
 
-        public ICollection<KeyValuePairResource> Stores { get; set; }
-       // public List<ProductStore> ProductStores { get; set; } = new List<ProductStore>();
+        public int StoreAvailableCount { get; set; }
+        public ICollection<ProductStoreResource> ProductStores { get; set; }
     }
 }

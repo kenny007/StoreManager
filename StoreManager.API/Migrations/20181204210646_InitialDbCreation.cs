@@ -68,9 +68,9 @@ namespace StoreManager.API.Migrations
                 {
                     StoreId = table.Column<int>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PriceWithVaT = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Vat = table.Column<decimal>(type: "decimal(5,4)", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    PriceWithVaT = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    VatRate = table.Column<decimal>(type: "decimal(6,4)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -121,19 +121,19 @@ namespace StoreManager.API.Migrations
                 columns: new[] { "ProductId", "DateAdded", "ProductGroupId", "ProductName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), 1, "Product 1" },
-                    { 5, new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), 1, "Product 5" },
-                    { 2, new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), 2, "Product 2" },
-                    { 3, new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), 2, "Product 3" },
-                    { 4, new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), 2, "Product 4" },
-                    { 6, new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), 3, "Product 6" },
-                    { 7, new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), 3, "Product 7" },
-                    { 8, new DateTime(2018, 12, 4, 14, 23, 25, 167, DateTimeKind.Utc), 3, "Product 8" }
+                    { 1, new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), 1, "Product 1" },
+                    { 5, new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), 1, "Product 5" },
+                    { 2, new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), 2, "Product 2" },
+                    { 3, new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), 2, "Product 3" },
+                    { 4, new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), 2, "Product 4" },
+                    { 6, new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), 3, "Product 6" },
+                    { 7, new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), 3, "Product 7" },
+                    { 8, new DateTime(2018, 12, 4, 21, 6, 46, 127, DateTimeKind.Utc), 3, "Product 8" }
                 });
 
             migrationBuilder.InsertData(
                 table: "ProductStores",
-                columns: new[] { "ProductId", "StoreId", "Price", "PriceWithVaT", "Vat" },
+                columns: new[] { "ProductId", "StoreId", "Price", "PriceWithVaT", "VatRate" },
                 values: new object[,]
                 {
                     { 1, 1, 12.00m, 13.20m, 0.32m },

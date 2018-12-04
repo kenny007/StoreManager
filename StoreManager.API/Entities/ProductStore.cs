@@ -12,10 +12,10 @@ namespace StoreManager.API.Entities
         public int ProductId { get; set; }
         public Product Product { get; set; }
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
         [Column(TypeName = "decimal(18,2)")]
-        public decimal PriceWithVaT { get; set; }
-        [Column(TypeName = "decimal(5,4)")]
-        public decimal Vat { get; set; }
+        public decimal? PriceWithVaT { get; set; }
+        [Column(TypeName = "decimal(6,4)")]
+        public decimal? VatRate { get; set; }
     }
 }

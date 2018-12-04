@@ -159,7 +159,7 @@ namespace StoreManager.API.Contexts
                     ProductId = 1,
                     Price = 12.00m,
                     PriceWithVaT = 13.20m,
-                    Vat = 0.32m
+                    VatRate = 0.32m
                 },
                 new
                 {
@@ -167,7 +167,7 @@ namespace StoreManager.API.Contexts
                     ProductId = 2,
                     Price = 50.00m,
                     PriceWithVaT = 15.20m,
-                    Vat = 0.36m
+                    VatRate = 0.36m
                 },
                 new
                 {
@@ -175,7 +175,7 @@ namespace StoreManager.API.Contexts
                     ProductId = 1,
                     Price = 50.00m,
                     PriceWithVaT = 15.20m,
-                    Vat = 0.36m
+                    VatRate = 0.36m
                 },
                 new
                 {
@@ -183,7 +183,7 @@ namespace StoreManager.API.Contexts
                     ProductId = 1,
                     Price = 48.00m,
                     PriceWithVaT = 14.20m,
-                    Vat = 0.63m
+                    VatRate = 0.63m
                 },
                 new
                 {
@@ -191,7 +191,7 @@ namespace StoreManager.API.Contexts
                     ProductId = 1,
                     Price = 50.00m,
                     PriceWithVaT = 19.20m,
-                    Vat = 0.54m
+                    VatRate = 0.54m
                 },
                 new
                 {
@@ -199,7 +199,7 @@ namespace StoreManager.API.Contexts
                     ProductId = 3,
                     Price = 50.00m,
                     PriceWithVaT = 15.20m,
-                    Vat = 0.36m
+                    VatRate = 0.36m
                 }
             );       
             
