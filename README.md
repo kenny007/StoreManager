@@ -9,7 +9,6 @@ This is an API built for managing products in a store endpoints include
 ```
 
 ## Running
-SPA:
 * Clone or download the repository
 * Open the project in either Visual Studio or IntelliJ Rider 
 * Change the ConnectionStrings in appsettings.json to localdb or an SQL Instance
