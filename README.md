@@ -1,4 +1,4 @@
-# Asp.Net Core 2.1 WebApi Project
+# Product Stock Manager API
 
 This is an API built for managing products in a store endpoints include
 
