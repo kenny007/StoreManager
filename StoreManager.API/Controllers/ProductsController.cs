@@ -71,9 +71,7 @@ namespace StoreManager.API.Controllers
         public IActionResult ProductGroups()
         {
             var tempList = _productsRepository.ListGroups();
-            return Content(JsonConvert.SerializeObject(new { data =  _productsRepository.GetGroups(tempList) },Formatting.Indented),"application/json");
-            
-          
+            return Content(JsonConvert.SerializeObject(new { data =  _productsRepository.GetGroups(tempList) },Formatting.Indented),"application/json");                  
         }
       
     }
