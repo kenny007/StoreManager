@@ -10,6 +10,8 @@ namespace StoreManager.API.Services
     {
         Task <IEnumerable<Product>> GetProductsAsync();
         Task<Product> GetProductAsync(int id);
+        List<ProductGroup> ListGroups();
+        List<ProductGroup> GetGroups(List<ProductGroup> groups);
         Product AddProduct(NewProductResource productResource);
         void AddProductStore(NewProductResource productResource);
         Task<bool> SaveChangesAsync();

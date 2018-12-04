@@ -5,6 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using StoreManager.API.Entities;
 using StoreManager.API.Models;
 using StoreManager.API.Services;
@@ -64,6 +65,15 @@ namespace StoreManager.API.Controllers
             await _productsRepository.SaveChangesAsync();
 
             return Ok(productResource);
+        }
+        
+        [HttpGet("ProductGroups")]
+        public IActionResult ProductGroups()
+        {
+            var tempList = _productsRepository.ListGroups();
+            return Content(JsonConvert.SerializeObject(new { data =  _productsRepository.GetGroups(tempList) },Formatting.Indented),"application/json");
+            
+          
         }
       
     }

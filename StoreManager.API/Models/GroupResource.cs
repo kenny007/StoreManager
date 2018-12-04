@@ -4,6 +4,11 @@ namespace StoreManager.API.Models
 {
     public class GroupResource
     {
+        public GroupResource()
+        {
+            Id = -1;
+            ParentId = -1;
+        }
         public int Id { get; set; }
         public string Name { get; set; }
 

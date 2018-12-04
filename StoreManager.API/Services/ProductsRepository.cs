@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.ExpressionVisitors.Internal;
 using StoreManager.API.Contexts;
 using StoreManager.API.Entities;
 using StoreManager.API.Models;
@@ -72,6 +73,54 @@ namespace StoreManager.API.Services
                     .ThenInclude(p=>p.Store)
                     .Include(c=>c.ProductGroup)                   
                     .ToListAsync();
+        }
+
+        public List<ProductGroup> ListGroups()
+        {
+            List<ProductGroup> temp = _context.ProductGroups.Include(x => x.SubProductGroup)
+                .Where(x => x.ParentProductGroup == null)
+                .Select(c => new ProductGroup
+                {
+                    ProductGroupId = c.ProductGroupId,
+                    Name = c.Name, ParentId = c.ParentId, SubProductGroup = c.SubProductGroup
+                }).ToList();
+           
+            return temp;
+        }
+
+        public List<ProductGroup> GetGroups(List<ProductGroup> groups)
+        {
+            int a = 0;
+            List<ProductGroup> lists = new List<ProductGroup>();
+
+            if(groups.Count > 0)
+            {
+                lists.AddRange(groups);
+            }
+
+            foreach(ProductGroup grp in groups)
+            {
+                ProductGroup groupNode = _context.ProductGroups.Include(g => g.SubProductGroup)
+                    .Where(g => g.ProductGroupId == grp.ProductGroupId)
+                    .Select(g => new ProductGroup()
+                    {
+                        ProductGroupId = g.ProductGroupId, Name = g.Name,
+                        ParentId = g.ParentId, SubProductGroup = g.SubProductGroup
+                    }).First();
+                    
+                   
+                if(groupNode.SubProductGroup == null)
+                {
+                    a++;
+                    continue;
+                }
+
+                List<ProductGroup> subNode = groupNode.SubProductGroup.ToList();
+                groupNode.SubProductGroup = GetGroups(subNode);
+                lists[a] = groupNode;
+                a++;
+            }
+            return lists;
         }
 
         public void Dispose()
