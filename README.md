@@ -21,6 +21,7 @@ Versioning can be added for the projects etc
 
 ## Using postman you can use this to test the endpoint for creating a new product 
  It allows for adding products across stores as this if their prices are the same
+ ```sh
 {
     "productId": "1",
 	"productName": "Resident Good 4",
@@ -30,3 +31,4 @@ Versioning can be added for the projects etc
 	"vatRate": "20",
 	"stores": [1,2,3]
 }
+```
