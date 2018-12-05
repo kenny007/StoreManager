@@ -3,9 +3,9 @@
 This is an API built for managing products in a store endpoints include
 
 ```sh
- api/products  //To get list of products with category, it also includes stores where products are found
- api/CreateProduct //Use endpoint to create a new product, this can be extended to allow bulk creation of products
- api/ProductGroups //This can be used to get ProductGroups with their sub groups in a tree like manner
+ api/products - GET           //To get list of products with category, it also includes stores where products are found
+ api/products - POST          //Use endpoint to create a new product, this can be extended to allow bulk creation of products
+ api/products/ProductGroups   //This can be used to get ProductGroups with their sub groups in a tree like manner
 ```
 
 ## Running
