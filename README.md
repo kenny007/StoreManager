@@ -19,7 +19,7 @@ The ProductGroups endpoint can be optmized to use an iterative approach instead 
 API can be extended to allow for Bulk Insert
 Versioning can be added for the projects etc
 
-## Using postman you can use this to test the endpoint for creating a new product 
+## Using POSTMAN test the endpoint for creating a new product with the data below 
  It allows for adding products across stores as this if their prices are the same
  ```sh
 {
