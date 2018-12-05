@@ -23,7 +23,6 @@ Versioning can be added for the projects etc
  It allows for adding products across stores as this if their prices are the same
  ```sh
 {
-    "productId": "1",
 	"productName": "Resident Good 4",
 	"productGroupId": "4",
 	"price": "25.00",
